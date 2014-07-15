@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<client_master_protocol>
+		<item>
+			<name>protocol</name>
+			<value>me.littlepanda.dadbear.core.rpc.ClientMasterProtocol</value>
+			<type>String</type>
+			<description>服务协议</description>
+		</item>
+		<item>
+			<name>implementation</name>
+			<value>me.littlepanda.dadbear.master.DefaultClientMasterProtocol</value>
+			<type>String</type>
+			<description>服务实现</description>
+		</item>
+		<item>
+			<name>port</name>
+			<value>56112</value>
+			<type>Integer</type>
+			<description>服务端口号</description>
+		</item>
+		<item>
+			<name>type</name>
+			<value>remote_avdl</value>
+			<type>String</type>
+			<description>远程服务类型</description>
+		</item>
+		<item>
+			<name>description</name>
+			<value>客户端与服务器你之间的通信协议</value>
+			<type>String</type>
+			<description>描述client-master-protocol</description>
+		</item>
+	</client_master_protocol>
+	<slave_master_protocol>
+		<item>
+			<name>protocol</name>
+			<value>me.littlepanda.dadbear.core.rpc.SlaveMasterProtocol</value>
+			<type>String</type>
+			<description>服务协议</description>
+		</item>
+		<item>
+			<name>implementation</name>
+			<value>me.littlepanda.dadbear.master.DefaultSlaveMasterProtocol</value>
+			<type>String</type>
+			<description>服务实现</description>
+		</item>
+		<item>
+			<name>port</name>
+			<value>56113</value>
+			<type>String</type>
+			<description>服务端口号</description>
+		</item>
+		<item>
+			<name>type</name>
+			<value>remote_avdl</value>
+			<type>String</type>
+			<description>远程服务类型</description>
+		</item>
+		<item>
+			<name>description</name>
+			<value>slave节点与master节点之间的协议，就是心跳协议</value>
+			<type>String</type>
+			<description>描述slave-master-protocol</description>
+		</item>
+	</slave_master_protocol>
+	<log_service>
+		<item>
+			<name>protocol</name>
+			<value>me.littlepanda.dadbear.example.log.LogManager</value>
+			<type>String</type>
+			<description>服务协议</description>
+		</item>
+		<item>
+			<name>implementation</name>
+			<value>me.littlepanda.dadbear.example.log.LogManagerImpl</value>
+			<type>String</type>
+			<description>服务实现</description>
+		</item>
+		<item>
+			<name>port</name>
+			<value>56114</value>
+			<type>String</type>
+			<description>服务端口号</description>
+		</item>
+		<item>
+			<name>type</name>
+			<value>remote</value>
+			<type>String</type>
+			<description>远程服务类型</description>
+		</item>
+		<item>
+			<name>description</name>
+			<value>日志服务</value>
+			<type>String</type>
+			<description>描述slave-master-protocol</description>
+		</item>
+	</log_service>
+<!-- 	<test_remote_service> -->
+<!-- 		<item> -->
+<!-- 			<name>protocol</name> -->
+<!-- 			<value>me.littlepanda.dadbear.core.test.TestRemoteService</value> -->
+<!-- 			<type>String</type> -->
+<!-- 			<description>服务协议</description> -->
+<!-- 		</item> -->
+<!-- 		<item> -->
+<!-- 			<name>implementation</name> -->
+<!-- 			<value>me.littlepanda.dadbear.core.test.TestRemoteServiceImpl</value> -->
+<!-- 			<type>String</type> -->
+<!-- 			<description>服务实现</description> -->
+<!-- 		</item> -->
+<!-- 		<item> -->
+<!-- 			<name>port</name> -->
+<!-- 			<value>56114</value> -->
+<!-- 			<type>Integer</type> -->
+<!-- 			<description>服务端口号</description> -->
+<!-- 		</item> -->
+<!-- 		<item> -->
+<!-- 			<name>type</name> -->
+<!-- 			<value>remote</value> -->
+<!-- 			<type>String</type> -->
+<!-- 			<description>远程服务类型</description> -->
+<!-- 		</item> -->
+<!-- 		<item> -->
+<!-- 			<name>distribute_algo</name> -->
+<!-- 			<value>rotation</value> -->
+<!-- 			<type>String</type> -->
+<!-- 			<description>每次请求轮流调用</description> -->
+<!-- 		</item> -->
+<!-- 		<item> -->
+<!-- 			<name>description</name> -->
+<!-- 			<value>测试远程调用</value> -->
+<!-- 			<type>String</type> -->
+<!-- 			<description>描述</description> -->
+<!-- 		</item> -->
+<!-- 		<item> -->
+<!-- 			<name>test</name> -->
+<!-- 			<value>testConfig-send to service</value> -->
+<!-- 			<type>String</type> -->
+<!-- 			<description>测试，将参数已注解的形式传递进服务中</description> -->
+<!-- 		</item> -->
+<!-- 	</test_remote_service> -->
+<!-- 	<test_schedule_service> -->
+<!-- 		<item> -->
+<!-- 			<name>protocol</name> -->
+<!-- 			<value>me.littlepanda.dadbear.core.test.TestSchedulerService</value> -->
+<!-- 			<type>String</type> -->
+<!-- 			<description>服务协议</description> -->
+<!-- 		</item> -->
+<!-- 		<item> -->
+<!-- 			<name>implementation</name> -->
+<!-- 			<value>me.littlepanda.dadbear.core.test.TestSchedulerServiceImpl</value> -->
+<!-- 			<type>String</type> -->
+<!-- 			<description>服务实现</description> -->
+<!-- 		</item> -->
+<!-- 		<item> -->
+<!-- 			<name>type</name> -->
+<!-- 			<value>scheduler</value> -->
+<!-- 			<type>String</type> -->
+<!-- 			<description>远程服务类型</description> -->
+<!-- 		</item> -->
+<!-- 		<item> -->
+<!-- 			<name>schedule</name> -->
+<!-- 			<value>0/5 * * * * ? *</value> -->
+<!-- 			<type>String</type> -->
+<!-- 			<description>调度串</description> -->
+<!-- 		</item> -->
+<!-- 		<item> -->
+<!-- 			<name>description</name> -->
+<!-- 			<value>测试调度类型服务</value> -->
+<!-- 			<type>String</type> -->
+<!-- 			<description>描述</description> -->
+<!-- 		</item> -->
+<!-- 		<item> -->
+<!-- 			<name>test</name> -->
+<!-- 			<value>testConfig-send to service</value> -->
+<!-- 			<type>String</type> -->
+<!-- 			<description>测试，将参数已注解的形式传递进服务中</description> -->
+<!-- 		</item></test_schedule_service> -->
+</configuration>

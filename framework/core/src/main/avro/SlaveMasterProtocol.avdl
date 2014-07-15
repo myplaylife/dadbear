@@ -1,0 +1,4 @@
+@namespace("me.littlepanda.dadbear.core.rpc")
+protocol SlaveMasterProtocol {
+	void sendHeartBeat(string message);
+}

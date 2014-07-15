@@ -1,0 +1,10 @@
+{"namespace": "me.littlepanda.dadbear.core.config",
+ "name": "ConfigInfo", 
+ "type": "record",
+ "fields": [
+    {"name": "name",   "type": "string"},
+    {"name": "value", "type": "string"},
+    {"name": "type", "type": "string"},
+    {"name": "description", "type": "string"}
+  ]
+}

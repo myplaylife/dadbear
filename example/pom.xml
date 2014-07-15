@@ -1,0 +1,146 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>me.littlepanda</groupId>
+		<artifactId>dadbear</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>example</artifactId>
+	<description>example</description>
+	<properties>
+		<bin.path>/usr/local/bin</bin.path>
+		<conf.path>/etc/dadbear/conf</conf.path>
+		<lib.path>/usr/local/lib/dadbear/lib</lib.path>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>me.littlepanda</groupId>
+			<artifactId>master</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>me.littlepanda</groupId>
+			<artifactId>slave</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>me.littlepanda</groupId>
+			<artifactId>client</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>me.littlepanda.dadbear.slave.Slave</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>product</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<master.name>master-${project.version}.jar</master.name>
+				<slave.name>slave-${project.version}</slave.name>
+				<confpath>${conf.path}</confpath>
+				<libpath>${lib.path}</libpath>
+				<jvm.Xms>1024m</jvm.Xms>
+				<jvm.Xmx>2048m</jvm.Xmx>
+				<master.main_method>me.littlepanda.dadbear.master.Master</master.main_method>
+				<slave.main_method>me.littlepanda.dadbear.slave.Slave</slave.main_method>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>generate-rpm</id>
+								<phase>package</phase>
+								<goals>
+									<goal>rpm</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<copyright>apache license</copyright>
+							<distribution></distribution>
+							<group>littlepanda family</group>
+							<icon></icon>
+							<packager>myplaylife@icloud.com</packager>
+							<targetVendor>littlepanda</targetVendor>
+							<defineStatements>
+								<defineStatement>_unpackaged_files_terminate_build 0</defineStatement>
+							</defineStatements>
+							<mappings>
+								<mapping>
+									<directory>${bin.path}</directory>
+									<filemode>755</filemode>
+									<username>root</username>
+									<groupname>root</groupname>
+									<sources>
+										<source>
+											<location>bin</location>
+										</source>
+									</sources>
+								</mapping>
+								<mapping>
+									<directory>${conf.path}</directory>
+									<filemode>744</filemode>
+									<username>root</username>
+									<groupname>root</groupname>
+									<sources>
+										<source>
+											<location>conf</location>
+										</source>
+									</sources>
+								</mapping>
+								<mapping>
+									<directory>${lib.path}</directory>
+									<filemode>750</filemode>
+									<username>root</username>
+									<groupname>root</groupname>
+									<artifact />
+									<dependency />
+								</mapping>
+							</mappings>
+							<preinstallScriptlet>
+								<script>echo "installing now"</script>
+							</preinstallScriptlet>
+							<postinstallScriptlet>
+<!-- 								<scriptFile>src/main/scripts/postinstall</scriptFile> -->
+<!-- 								<fileEncoding>utf-8</fileEncoding> -->
+								<script>echo "install over"</script>
+							</postinstallScriptlet>
+							<preremoveScriptlet>
+								<script>echo "remove now"</script>
+								<script>
+									rm -rf /usr/local/lib/dadbear/;
+									rm -rf
+									/usr/local/bin/start-master.sh;
+									rm -rf
+									/usr/local/bin/start-slave.sh;
+									rm -rf /etc/dadbear/conf/;
+								</script>
+							</preremoveScriptlet>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

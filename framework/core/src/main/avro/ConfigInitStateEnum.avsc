@@ -1,0 +1,6 @@
+{ 
+  "namespace": "me.littlepanda.dadbear.core.config",
+  "type": "enum",
+  "name": "ConfigInitState",
+  "symbols" : ["INIT", "OK"]
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<common>
+		
+	</common>
+	<master>
+		<item>
+			<name>extra.modules</name>
+			<value>client_master_protocol\, slave_master_protocol</value>
+			<type>List</type>
+			<description>除了common和master模块外，master还需要加载的配置模块</description>
+		</item>
+	</master>
+	<slave>
+		<item>
+			<name>extra.modules</name>
+			<value>
+				log_service
+			</value>
+			<type>List</type>
+			<description>除了common和slave模块外，master还需要加载的配置模块</description>
+		</item>
+	</slave>
+	<client>
+		<item>
+			<name>extra.modules</name>
+			<value></value>
+			<type>List</type>
+			<description>除了common和client模块外，master还需要加载的配置模块</description>
+		</item>
+	</client>
+</configuration>

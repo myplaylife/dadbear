@@ -1,0 +1,8 @@
+{"namespace": "me.littlepanda.dadbear.core.config",
+ "name": "ConfigState", 
+ "type": "record",
+ "fields": [
+ 	{"name": "state", "type": "ConfigInitState", "default": "OK"},
+    {"name": "changed", "type": {"type":"array", "items": "string"}, "default": []}
+  ]
+}

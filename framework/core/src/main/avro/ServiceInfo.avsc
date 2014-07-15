@@ -1,0 +1,15 @@
+{"namespace": "me.littlepanda.dadbear.core.rpc",
+ "name": "ServiceInfo", 
+ "type": "record",
+ "fields": [
+    {"name": "name", "type": "string"},
+    {"name": "host", "type": "string"},
+    {"name": "type", "type": "string"},
+    {"name": "protocol", "type": "string"},
+    {"name": "implement", "type": "string"},
+    {"name": "port", "type": ["null", "int"]},
+    {"name": "schedule", "type": ["null", "string"]},
+    {"name": "distributeAlgo", "type": ["null", "string"]},
+    {"name": "description", "type": ["null", "string"]}
+  ]
+}

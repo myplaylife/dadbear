@@ -1,0 +1,12 @@
+{"namespace": "me.littlepanda.dadbear.core.rpc",
+ "name": "MasterInfo", 
+ "type": "record",
+ "fields": [
+    {"name": "id",   "type": "string"},
+    {"name": "ip", "type": "string"},
+    {"name": "host", "type": "string"},
+    {"name": "slaveMasterPort", "type": "int"},
+    {"name": "clientMasterPort", "type": "int"},
+    {"name": "isLeader", "type":"boolean"}
+  ]
+}

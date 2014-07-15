@@ -1,0 +1,17 @@
+@namespace("me.littlepanda.dadbear.core.rpc")
+protocol ClientMasterProtocol {
+
+	import schema "ServiceInfo.avsc";
+	import schema "SlaveInfo.avsc";
+	
+	ServiceInfo getServiceInfoByName(string name);
+	
+	array<ServiceInfo> getAllServiceInfosByServiceName(string name);
+	
+	ServiceInfo getServiceInfoByNameAndSlaveId(string name, string slave_id);
+	
+	array<SlaveInfo> getSlaves();
+	
+	SlaveInfo getSlaveById(string slave_id);
+	
+}
